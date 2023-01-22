@@ -15,13 +15,16 @@ services:
       - build_volume:/home/app/.next:nocopy
   firebase:
     build:
-      context: ./server
+      context: ./firebase
       dockerfile: Dockerfile
     container_name: firebase
+    environment:
+      FIRESTORE_EMULATOR_HOST: "localhost:8080"
     volumes:
-      - ./server/:/opt/firebase/
-      - ./server/bin/:/root/.cache:cached
-      - ./server/config/:/root/.config:cached
+      - ./firebase/:/opt/firebase/
+      - ./firebase/bin/:/root/.cache:cached
+      - ./firebase/config/:/root/.config:cached
+      - modules_volume:/opt/firebase/node_modules:delegated
     ports:
       - 5001:5001 # Cloud Functions
       - 8080:8080 # Cloud Firestore
@@ -31,5 +34,6 @@ services:
     command: firebase emulators:start
     tty: true
 volumes:
+  modules_volume:
   node_modules_volume:
   build_volume:
