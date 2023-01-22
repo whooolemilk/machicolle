@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  node:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: stamp-rally
+    environment:
+      FIRESTORE_EMULATOR_HOST: "localhost:8080"
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client/:/home/app
+      - node_modules_volume:/home/app/node_modules:delegated
+      - build_volume:/home/app/.next:nocopy
+  firebase:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: firebase
+    volumes:
+      - ./server/:/opt/firebase/
+      - ./server/bin/:/root/.cache:cached
+      - ./server/config/:/root/.config:cached
+    ports:
+      - 5001:5001 # Cloud Functions
+      - 8080:8080 # Cloud Firestore
+      - 9199:9199 # Cloud Storage
+      - 4000:4000 # Emulator Suite UI
+    working_dir: /opt/firebase
+    command: firebase emulators:start
+    tty: true
+volumes:
+  node_modules_volume:
+  build_volume:
