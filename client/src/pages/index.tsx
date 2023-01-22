@@ -1,26 +1,46 @@
-import { collection, getDocs, getFirestore } from "firebase/firestore"
-import { useEffect, useState } from "react"
+import { Header } from '@/components/Header'
+import {
+  useCreateUserMutation,
+  useDeleteUserMutation,
+  useGetUsersQuery,
+  UserType
+} from '@/rtk/api'
 
 export default function Home() {
-  const [user, setUser] = useState([])
+  const { data, isLoading, isFetching } = useGetUsersQuery()
+  const [createUser] = useCreateUserMutation()
+  const [deleteUser] = useDeleteUserMutation()
 
-  useEffect(() => {
-    const loadUser = async () => {
-      const db = getFirestore()
-      const ref = collection(db, 'users')
-
-      const snapshot = await getDocs(ref)
-
-      const list = snapshot.docs.map((doc) => {
-        return doc.data()
-      })
-      console.log(list);
-      
-      setUser(list)
+  const createDataHandler = async () => {
+    const data = {
+      name: 'あいうえお',
+      uid: Math.random().toString(32).substring(2)
     }
+    const id = await createUser(data).unwrap()
+    console.log(id)
+  }
 
-    loadUser()
-  }, [])
+  const deleteDataHandler = async (data: UserType[]) => {
+    const id = data[0].uid
+    await deleteUser(id).unwrap()
+  }
 
-  return <p></p>
+  return (
+    <>
+      <Header />
+      {!data || isLoading || isFetching ? (
+        <>{'ローディング'}</>
+      ) : (
+        <>
+          <ul>
+            {data.map((item) => (
+              <li key={item.uid}>uid: {item.uid}</li>
+            ))}
+          </ul>
+          <button onClick={createDataHandler}>データ追加</button>
+          <button onClick={() => deleteDataHandler(data)}>データ削除</button>
+        </>
+      )}
+    </>
+  )
 }

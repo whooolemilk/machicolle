@@ -17,3 +17,5 @@ COPY ./package-lock.json $APP_ROOT
 RUN npm install
 
 COPY . $APP_ROOT
+
+RUN mkdir db/local

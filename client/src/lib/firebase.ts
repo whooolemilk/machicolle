@@ -14,12 +14,12 @@ if (typeof window !== 'undefined' && getApps().length === 0) {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
   }
-  
+
   initializeApp(firebaseConfig)
 
   const db = getFirestore()
+
   if (process.env.NODE_ENV === 'development') {
     connectFirestoreEmulator(db, 'localhost', 8080)
   }
-
 }
