@@ -7,7 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
 
 RUN npm install -g firebase-tools firebase-admin
 
-ENV APP_ROOT /opt/firebase
+ENV APP_ROOT /home/app
 
 WORKDIR $APP_ROOT
 
@@ -18,4 +18,5 @@ RUN npm install
 
 COPY . $APP_ROOT
 
-RUN mkdir db/local
+EXPOSE 3000
+CMD ["npm", "run", "dev"]

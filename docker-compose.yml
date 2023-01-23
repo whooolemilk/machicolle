@@ -2,38 +2,25 @@ version: '3.9'
 services:
   node:
     build:
-      context: ./client
+      context: ./front
       dockerfile: Dockerfile
     container_name: stamp-rally
     environment:
       FIRESTORE_EMULATOR_HOST: "localhost:8080"
     ports:
-      - 3000:3000
-    volumes:
-      - ./client/:/home/app
-      - node_modules_volume:/home/app/node_modules:delegated
-      - build_volume:/home/app/.next:nocopy
-  firebase:
-    build:
-      context: ./firebase
-      dockerfile: Dockerfile
-    container_name: firebase
-    environment:
-      FIRESTORE_EMULATOR_HOST: "localhost:8080"
-    volumes:
-      - ./firebase/:/opt/firebase/
-      - ./firebase/bin/:/root/.cache:cached
-      - ./firebase/config/:/root/.config:cached
-      - modules_volume:/opt/firebase/node_modules:delegated
-    ports:
-      - 5001:5001 # Cloud Functions
+      - 3000:3000 # Next.js
       - 8080:8080 # Cloud Firestore
       - 9199:9199 # Cloud Storage
       - 4000:4000 # Emulator Suite UI
-    working_dir: /opt/firebase
-    command: firebase emulators:start
+    volumes:
+      - ./front/:/home/app
+      - ./front/firebase/:/home/app/firebase/
+      - ./front/firebase/bin/:/root/.cache:cached
+      - ./front/firebase/config/:/root/.config:cached
+      - node_modules_volume:/home/app/node_modules:delegated
+      - build_volume:/home/app/.next:nocopy
     tty: true
+
 volumes:
-  modules_volume:
   node_modules_volume:
   build_volume:

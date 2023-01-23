@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"npm run dev:next\" \"npm run dev:scss\" \"npm run dev:firebase\"",
+    "dev:next": "next dev",
+    "dev:firebase": "cd /home/app/firebase && firebase emulators:start",
     "dev:scss": "typed-scss-modules src --watch",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint -d ./ --ignore-path .gitignore",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "typegen:scss": "typed-scss-modules src",
-    "storybook": "start-storybook -p 6006",
-    "test": "jest"
+    "typegen:scss": "typed-scss-modules src"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
@@ -30,6 +30,7 @@
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "babel-loader": "^9.1.2",
+    "concurrently": "^7.6.0",
     "eslint": "^8.32.0",
     "eslint-config-next": "^13.1.2",
     "eslint-config-prettier": "^8.6.0",
