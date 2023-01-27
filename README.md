@@ -30,8 +30,9 @@
 ```
 
 以下の URL にブラウザからアクセスできるか確認してください。
-- http://localhost:3000
-- http://localhost:4000
+- http://localhost:3000 (Next.js)
+- http://localhost:4000 (Firebase Emulator)
+- http://localhost:6006 (Storybook)
 
 ## 🧸 Other Commands
 全て、stamp-rallyを起動した状態で打ってください。  
