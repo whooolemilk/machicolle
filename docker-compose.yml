@@ -9,6 +9,7 @@ services:
       FIRESTORE_EMULATOR_HOST: "localhost:8080"
     ports:
       - 3000:3000 # Next.js
+      - 6006:6006 # Storybook
       - 8080:8080 # Cloud Firestore
       - 9199:9199 # Cloud Storage
       - 4000:4000 # Emulator Suite UI
