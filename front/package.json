@@ -7,7 +7,7 @@
     "dev": "concurrently \"yarn dev:next\" \"yarn dev:scss\" \"yarn dev:storybook\" \"yarn dev:firebase\"",
     "dev:next": "next dev",
     "dev:storybook": "start-storybook -p 6006",
-    "dev:firebase": "cd /home/app/firebase && firebase emulators:start",
+    "dev:firebase": "cd /home/app/firebase && firebase emulators:start --import=./db/local --only firestore",
     "dev:scss": "typed-scss-modules src --watch",
     "lint": "next lint -d ./ --ignore-path .gitignore",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -15,7 +15,8 @@
     "check:type": "tsc --pretty --noEmit",
     "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "build:next": "next build && next export",
-    "build:scss": "typed-scss-modules src"
+    "build:scss": "typed-scss-modules src",
+    "export:firebase": "cd /home/app/firebase && firebase emulators:export ./db/local"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
