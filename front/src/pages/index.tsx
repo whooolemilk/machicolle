@@ -5,8 +5,9 @@ import {
   useGetUsersQuery,
   UserType
 } from '@/rtk/api'
+import Link from 'next/link'
 
-export default function Home() {
+const Index = () => {
   const { data, isLoading, isFetching } = useGetUsersQuery()
   const [createUser] = useCreateUserMutation()
   const [deleteUser] = useDeleteUserMutation()
@@ -39,8 +40,12 @@ export default function Home() {
           </ul>
           <button onClick={createDataHandler}>データ追加</button>
           <button onClick={() => deleteDataHandler(data)}>データ削除</button>
+          
         </>
       )}
+      <Link href="/home">/home</Link>
     </>
   )
 }
+
+export default Index
