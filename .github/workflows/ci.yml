@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - front/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.13.0'
+
+      - name: Get yarn cache
+        working-directory: ./front
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      
+      - name: CI
+        working-directory: ./front
+        run: |
+          yarn install --frozen-lockfile
+          yarn check:lint
+          yarn check:type
+          yarn check:format
