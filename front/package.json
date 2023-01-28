@@ -1,6 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
+  "packageManager": "yarn@3.2.3",
   "private": true,
   "scripts": {
     "dev": "concurrently \"yarn dev:next\" \"yarn dev:scss\" \"yarn dev:storybook\" \"yarn dev:firebase\"",
@@ -8,11 +9,13 @@
     "dev:storybook": "start-storybook -p 6006",
     "dev:firebase": "cd /home/app/firebase && firebase emulators:start",
     "dev:scss": "typed-scss-modules src --watch",
-    "build": "next build && next export",
-    "start": "next start",
     "lint": "next lint -d ./ --ignore-path .gitignore",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "typegen:scss": "typed-scss-modules src"
+    "check:lint": "next lint -d ./ --fix --ignore-path .gitignore --max-warnings=0",
+    "check:type": "tsc --pretty --noEmit",
+    "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "build:next": "next build && next export",
+    "build:scss": "typed-scss-modules src"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
