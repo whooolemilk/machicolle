@@ -40,7 +40,6 @@ const Index = () => {
           </ul>
           <button onClick={createDataHandler}>データ追加</button>
           <button onClick={() => deleteDataHandler(data)}>データ削除</button>
-          
         </>
       )}
       <Link href="/home">/home</Link>
