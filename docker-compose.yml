@@ -15,8 +15,8 @@ services:
       - 4000:4000 # Emulator Suite UI
     volumes:
       - ./front/:/home/app
-      - ./front/firebase/bin/:/root/.cache:cached
-      - ./front/firebase/config/:/root/.config:cached
+      - ./front/bin/:/root/.cache:cached
+      - ./front/config/:/root/.config:cached
       - node_modules_volume:/home/app/node_modules:delegated
       - build_volume:/home/app/.next:nocopy
     tty: true
