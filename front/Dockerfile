@@ -15,8 +15,7 @@ COPY ./package.json $APP_ROOT
 COPY ./yarn.lock $APP_ROOT
 
 RUN corepack enable && corepack prepare yarn@3.2.3 --activate
-
-RUN yarn install
+RUN yarn rebuild && yarn install 
 
 COPY . $APP_ROOT
 
