@@ -16,7 +16,8 @@
     "check:format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "build:next": "next build && next export",
     "build:scss": "typed-scss-modules src",
-    "export:firebase": "cd /home/app/firebase && firebase emulators:export --force ./db/local"
+    "export:firestore": "cd /home/app/firebase && firebase emulators:export --force ./db/local",
+    "clean:firestore": "rm -rf /home/app/firebase/db/local"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
