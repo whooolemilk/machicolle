@@ -1,3 +1,4 @@
+import { ButtonMain } from '@/components/Buttons'
 import { Header } from '@/components/Header'
 import {
   useCreateUserMutation,
@@ -42,7 +43,9 @@ const Index = () => {
           <button onClick={() => deleteDataHandler(data)}>データ削除</button>
         </>
       )}
-      <Link href="/home">/home</Link>
+      <Link href="/home">
+        <ButtonMain>さっそく作ってみる！</ButtonMain>
+      </Link>
     </>
   )
 }
