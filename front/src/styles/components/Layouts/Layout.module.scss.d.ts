@@ -1,6 +1,6 @@
 export type Styles = {
-  header: string
-  title: string
+  container: string
+  flex: string
 }
 
 export type ClassNames = keyof Styles

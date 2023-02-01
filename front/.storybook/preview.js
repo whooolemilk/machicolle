@@ -1,4 +1,5 @@
-import '../src/styles/global.scss'
+import * as nextImage from 'next/image'
+import '@/styles/global.scss'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,3 +10,12 @@ export const parameters = {
     }
   }
 }
+
+const OriginalNextImage = nextImage.default
+
+Object.defineProperty(nextImage, 'default', {
+  configurable: true,
+  value: (props) => (
+    <OriginalNextImage {...props} placeholder={undefined} unoptimized />
+  )
+})

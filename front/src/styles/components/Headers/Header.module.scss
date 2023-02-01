@@ -1,0 +1,153 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  height: 64px;
+  background-color: var(--c-white);
+}
+
+.logo {
+  position: relative;
+  width: 120px;
+  height: 64px;
+  margin: auto auto;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.home {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: 0;
+  line-height: 64px;
+}
+
+.return {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+// ハンバーガーメニューボタン
+.menu_btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  height: 32px;
+  width: 32px;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  span {
+    &,
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 21px;
+      border-radius: 3px;
+      background-color: var(--c-black);
+      position: absolute;
+      transition: all 0.3s;
+    }
+    &:before {
+      bottom: 7px;
+    }
+    &:after {
+      top: 7px;
+    }
+  }
+}
+
+#menu_btn_check {
+  display: none;
+
+  &:checked {
+    ~ .menu_btn span {
+      background-color: rgba(255, 255, 255, 0);
+      &::before {
+        bottom: 0;
+        transform: rotate(45deg);
+        transition: all 0.3s;
+      }
+      &::after {
+        top: 0;
+        transform: rotate(-45deg);
+        transition: all 0.3s;
+      }
+    }
+
+    ~ .menu_content {
+      right: 0;
+    }
+
+    ~ .menu_closelabel {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      .menu_cover {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9997;
+        background: rgba(3, 3, 3, 0.5);
+        transition: all 0.3s;
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// ハンバーガーメニューの中身
+.menu_content {
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -200px;
+  z-index: 9998;
+  background-color: var(--c-white);
+  transition: all 0.5s;
+  border-radius: 8px 0 0 8px;
+
+  ul {
+    padding: 70px 10px 0;
+    li {
+      border-bottom: solid 1px var(--c-gray);
+      list-style: none;
+      a {
+        display: block;
+        width: 100%;
+        font-size: var(--font-size-md);
+        box-sizing: border-box;
+        color: var(--c-black);
+        text-decoration: none;
+        padding: 9px 15px 10px 0;
+        position: relative;
+        &::before {
+          content: '';
+          width: 7px;
+          height: 7px;
+          border-top: solid 2px var(--c-white);
+          border-right: solid 2px var(--c-white);
+          transform: rotate(45deg);
+          position: absolute;
+          right: 11px;
+          top: 16px;
+        }
+      }
+    }
+  }
+}

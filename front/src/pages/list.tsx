@@ -1,6 +1,8 @@
+import { Layout, ListLayout } from '@/components/Layouts'
 import Link from 'next/link'
+import { ReactElement } from 'react'
 
-const list = () => {
+const List = () => {
   return (
     <>
       <Link href="/stampcard">/stampcard</Link>
@@ -8,4 +10,12 @@ const list = () => {
   )
 }
 
-export default list
+List.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      <ListLayout>{page}</ListLayout>
+    </Layout>
+  )
+}
+
+export default List
