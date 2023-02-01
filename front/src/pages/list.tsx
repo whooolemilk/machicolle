@@ -1,4 +1,4 @@
-import { Layout, ListLayout } from '@/components/Layouts'
+import { ListLayout } from '@/components/Layouts'
 import Link from 'next/link'
 import { ReactElement } from 'react'
 
@@ -11,11 +11,7 @@ const List = () => {
 }
 
 List.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      <ListLayout>{page}</ListLayout>
-    </Layout>
-  )
+  return <ListLayout>{page}</ListLayout>
 }
 
 export default List

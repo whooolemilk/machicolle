@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ReactElement } from 'react'
-import { HomeLayout, Layout } from '@/components/Layouts'
+import { HomeLayout } from '@/components/Layouts'
 import type { NextPageWithLayout } from './_app'
 
 const Home: NextPageWithLayout = () => {
@@ -13,11 +13,7 @@ const Home: NextPageWithLayout = () => {
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      <HomeLayout>{page}</HomeLayout>
-    </Layout>
-  )
+  return <HomeLayout>{page}</HomeLayout>
 }
 
 export default Home

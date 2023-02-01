@@ -1,4 +1,4 @@
-import { Layout, LpLayout } from '@/components/Layouts'
+import { LpLayout } from '@/components/Layouts'
 import { ButtonMain } from '@/components/Buttons'
 import {
   useCreateUserMutation,
@@ -52,11 +52,7 @@ const Index: NextPageWithLayout = () => {
 }
 
 Index.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      <LpLayout>{page}</LpLayout>
-    </Layout>
-  )
+  return <LpLayout>{page}</LpLayout>
 }
 
 export default Index

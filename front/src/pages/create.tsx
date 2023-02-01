@@ -1,4 +1,4 @@
-import { CreateLayout, Layout } from '@/components/Layouts'
+import { CreateLayout } from '@/components/Layouts'
 import Link from 'next/link'
 import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/pages/_app'
@@ -12,11 +12,7 @@ const Create: NextPageWithLayout = () => {
 }
 
 Create.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      <CreateLayout>{page}</CreateLayout>
-    </Layout>
-  )
+  return <CreateLayout>{page}</CreateLayout>
 }
 
 export default Create
