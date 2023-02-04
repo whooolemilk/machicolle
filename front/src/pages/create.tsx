@@ -1,4 +1,4 @@
-import { ModalAddSpot } from '@/components/ModaladdSpot'
+import { ModalAddSpot } from '@/components/ModalAddSpot'
 import Link from 'next/link'
 
 const Create = () => {
