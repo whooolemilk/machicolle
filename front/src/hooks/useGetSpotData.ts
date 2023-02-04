@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LatLng } from '@/components/SearchBox'
+import { LatLng } from '@/components/SpotSearchBox'
 
 export type spotDataType = {
   name: string | undefined

@@ -1,12 +1,12 @@
 import { useGetSpotData } from '@/hooks/useGetSpotData'
-import { SearchBox } from './SearchBox'
+import { SpotSearchBox } from './SpotSearchBox'
 
 export const ModalAddSpot = () => {
   const { spotData, setSpotData } = useGetSpotData()
 
   return (
     <>
-      <SearchBox placeholder={'場所を入力'} setSpotData={setSpotData} />
+      <SpotSearchBox placeholder={'場所を入力'} setSpotData={setSpotData} />
       <div>{spotData?.name}</div>
       <div>{spotData?.address}</div>
       <div>
