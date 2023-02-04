@@ -1,30 +1,19 @@
 import React, { useState, CSSProperties, SetStateAction, Dispatch } from 'react'
 
-import {
-  StandaloneSearchBox,
-  LoadScript,
-} from '@react-google-maps/api'
+import { StandaloneSearchBox, LoadScript } from '@react-google-maps/api'
+import { spotDataType } from '@/hooks/useGetSpotData'
+
+type PlaceResult = google.maps.places.PlaceResult
+type SearchBox = google.maps.places.SearchBox
+export type LatLng = google.maps.LatLng
 
 type SearchBoxProps = {
   placeholder: string
-  setName: Dispatch<SetStateAction<string | undefined>>
-  setAddress: Dispatch<SetStateAction<string | undefined>>
-  setLocation: Dispatch<SetStateAction<Location | undefined>>
-  setUrl: Dispatch<SetStateAction<string | undefined>>
+  setSpotData: Dispatch<SetStateAction<spotDataType | undefined>>
 }
 
-export type Location = {
-  lat: number
-  lng: number
-}
-
-export const SearchBox = ({
-  placeholder,
-  setName,
-  setAddress,
-  setLocation,
-  setUrl
-}: SearchBoxProps) => {
+export const SearchBox = ({ placeholder, setSpotData }: SearchBoxProps) => {
+  const apiKey: string | undefined = process.env.NEXT_PUBLIC_GOOGLEMAPS_API_KEY
   const style: CSSProperties = {
     //仮
     boxSizing: 'border-box',
@@ -39,29 +28,31 @@ export const SearchBox = ({
     margin: 'center',
     textOverflow: `ellipses`
   }
-  let result: google.maps.places.PlaceResult
-  let location: Location
-  const [searchBox, setSearchBox] = useState<google.maps.places.SearchBox>()
+  const [searchBox, setSearchBox] = useState<SearchBox | undefined>()
+  let results: PlaceResult[] | undefined
+  let spotData: spotDataType
 
   const onPlacesChanged = () => {
-    result = searchBox?.getPlaces()![0] as google.maps.places.PlaceResult
-    location = {
-      lat: result.geometry?.location?.lat()!,
-      lng: result.geometry?.location?.lng()!
+    if (searchBox) results = searchBox?.getPlaces()
+    if (results && results[0] && results[0].geometry) {
+      spotData = {
+        name: results[0].name,
+        address: results[0].formatted_address,
+        location: results[0].geometry.location,
+        url: results[0].url
+      }
     }
-
-    setName(result.name)
-    setAddress(result.formatted_address)
-    setLocation(location)
-    setUrl(result.url)
+    setSpotData(spotData)
   }
 
-  const onLoad = (ref: google.maps.places.SearchBox) => setSearchBox(ref)
+  const onLoad = (ref: SearchBox) => {
+    setSearchBox(ref)
+  }
 
   return (
     <>
       <LoadScript
-        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLEMAPS_API_KEY!}
+        googleMapsApiKey={apiKey ? apiKey : ''}
         libraries={['places']}
       >
         <StandaloneSearchBox onPlacesChanged={onPlacesChanged} onLoad={onLoad}>
