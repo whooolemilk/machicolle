@@ -1,4 +1,5 @@
-import { Header } from '@/components/Header'
+import { LpLayout } from '@/components/Layouts'
+import { ButtonMain } from '@/components/Buttons'
 import {
   useCreateUserMutation,
   useDeleteUserMutation,
@@ -6,8 +7,10 @@ import {
   UserType
 } from '@/rtk/api'
 import Link from 'next/link'
+import { ReactElement } from 'react'
+import type { NextPageWithLayout } from './_app'
 
-const Index = () => {
+const Index: NextPageWithLayout = () => {
   const { data, isLoading, isFetching } = useGetUsersQuery()
   const [createUser] = useCreateUserMutation()
   const [deleteUser] = useDeleteUserMutation()
@@ -28,7 +31,6 @@ const Index = () => {
 
   return (
     <>
-      <Header />
       {!data || isLoading || isFetching ? (
         <>{'ローディング'}</>
       ) : (
@@ -42,9 +44,15 @@ const Index = () => {
           <button onClick={() => deleteDataHandler(data)}>データ削除</button>
         </>
       )}
-      <Link href="/home">/home</Link>
+      <Link href="/home">
+        <ButtonMain>さっそく作ってみる！</ButtonMain>
+      </Link>
     </>
   )
+}
+
+Index.getLayout = function getLayout(page: ReactElement) {
+  return <LpLayout>{page}</LpLayout>
 }
 
 export default Index

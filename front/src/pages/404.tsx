@@ -1,5 +1,7 @@
+import { LpLayout } from '@/components/Layouts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ReactElement } from 'react'
 
 const Custom404 = () => {
   return (
@@ -26,6 +28,10 @@ const Custom404 = () => {
       <Link href="/home">ホームへもどる</Link>
     </>
   )
+}
+
+Custom404.getLayout = function getLayout(page: ReactElement) {
+  return <LpLayout>{page}</LpLayout>
 }
 
 export default Custom404

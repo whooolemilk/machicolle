@@ -5302,10 +5302,12 @@ __metadata:
     eslint-plugin-storybook: ^0.6.10
     firebase: ^9.16.0
     next: 13.0.7
+    normalize.css: ^8.0.1
     prettier: ^2.8.3
     react: 18.2.0
     react-dom: 18.2.0
     react-hook-form: ^7.42.1
+    react-icons: ^4.7.1
     react-redux: ^8.0.5
     sass: ^1.57.1
     sass-loader: ^13.2.0
@@ -12281,6 +12283,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"normalize.css@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "normalize.css@npm:8.0.1"
+  checksum: 4698cae88ec35e3f3e82f9f9402e6ffb906c27ccd6373cad88e6b3f5634fc7a043cb38702472299e5edb73825cf8b18d5fd9283f58829eddda79ea97453049a2
+  languageName: node
+  linkType: hard
+
 "npm-run-path@npm:^2.0.0":
   version: 2.0.2
   resolution: "npm-run-path@npm:2.0.2"
@@ -13706,6 +13715,15 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
   checksum: f0dcf5d7f6f90b4ba5efe58ce14b7adda6f2327c80c444df259c31d8bc785e823c9ec77c27a4f1db5bef70992235ae420acd190b1c767bec2c7fb8d11d639880
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.7.1":
+  version: 4.7.1
+  resolution: "react-icons@npm:4.7.1"
+  peerDependencies:
+    react: "*"
+  checksum: ed3cbdc5fc0c4d7d2debf78fdc8c4c80aeacf85a506a9a3c11b1d5922de393ac0a6542012b7fb81761e9280c54d0f26827d50a92b54ec8f0c8e52364d89970b5
   languageName: node
   linkType: hard
 
