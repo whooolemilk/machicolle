@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { ReactElement } from 'react'
 import { NextPageWithLayout } from '@/pages/_app'
 
-
 const Create: NextPageWithLayout = () => {
   return (
     <>
