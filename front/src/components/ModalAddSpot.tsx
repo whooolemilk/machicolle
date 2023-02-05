@@ -1,5 +1,5 @@
 import { useGetSpotData } from '@/hooks/useGetSpotData'
-import { SpotSearchBox } from './SpotSearchBox'
+import { SpotSearchBox } from '@/components/SpotSearchBox'
 
 export const ModalAddSpot = () => {
   const { spotData, setSpotData } = useGetSpotData()
