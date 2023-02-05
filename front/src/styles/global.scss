@@ -1,6 +1,7 @@
 :root {
   // Color
   --c-black: #000;
+  --c-red: #d41717;
   --c-orange: #f5683a;
   --c-hover-orange: #f4764c;
   --c-yellow: #f3a828;
@@ -25,4 +26,12 @@ html {
 
 body {
   background-color: var(--bg-gray);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
 }
