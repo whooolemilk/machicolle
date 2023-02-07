@@ -7,6 +7,7 @@ export type spotDataType = {
   location: LatLng | undefined
   url: string | undefined
 }
+
 export const useGetSpotData = () => {
   const [spotData, setSpotData] = useState<spotDataType>()
   return {
