@@ -5318,6 +5318,7 @@ __metadata:
     prettier: ^2.8.3
     react: 18.2.0
     react-dom: 18.2.0
+    react-geolocation: ^1.0.4
     react-hook-form: ^7.42.1
     react-icons: ^4.7.1
     react-modal: ^3.16.1
@@ -13735,6 +13736,15 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
   checksum: 42bcd4423f12e9ee21b2d3f0c2a28805ff4953bd82b6be4c1f5b5f9a371115aafa36a6f3d82726d43b4912179b79e99550c2b9a772c7fe6a5cd8f7e93ff34ceb
+  languageName: node
+  linkType: hard
+
+"react-geolocation@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "react-geolocation@npm:1.0.4"
+  peerDependencies:
+    react: ">=14"
+  checksum: d46f398dea23219a93cceb7a1d9cc76ebc833091c1f8e92262f0153b4347b4e724e3b1820a182553210ae40d7a9a8d1f9c26da3d02ff0eafea98c5fc19706860
   languageName: node
   linkType: hard
 
