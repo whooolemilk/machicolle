@@ -2,12 +2,12 @@ import { Inputs } from '@/hooks/form/useFormCreateStampcard'
 import styles from '@/styles/components/Forms/FormCreateStamcard.module.scss'
 import { Path, UseFormRegister } from 'react-hook-form'
 
-type InputProps = {
+type InputColorProps = {
   label: Path<Inputs>
   register: UseFormRegister<Inputs>
 }
 
-export const InputColor = ({ label, register }: InputProps) => {
+export const InputColor = ({ label, register }: InputColorProps) => {
   return (
     <div className={styles.color_theme}>
       {/* default_theme */}

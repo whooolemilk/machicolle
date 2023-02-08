@@ -1,8 +1,9 @@
 import styles from '@/styles/components/Forms/FormCreateStamcard.module.scss'
-import { ButtonMain, ButtonSecondary } from '@/components/Buttons'
+import { ButtonMain } from '@/components/Buttons'
 import { HiOutlineExclamation } from 'react-icons/hi'
 import { InputColor, InputEmoji } from '@/components/Inputs'
 import { useFormCreateStampcard } from '@/hooks/form'
+import { ModalAddSpot } from '@/components/Modals'
 
 export const FormCreateStampcard = () => {
   const { register, handleSubmit, control, errors, onSubmit } =
@@ -51,9 +52,7 @@ export const FormCreateStampcard = () => {
         </label>
         <div className={styles.label}>
           スポット
-          <div className={styles.add_spot_botton}>
-            <ButtonSecondary>スポットを追加する</ButtonSecondary>
-          </div>
+          <ModalAddSpot register={register} />
         </div>
         <ButtonMain type={'submit'}>公開する</ButtonMain>
       </form>

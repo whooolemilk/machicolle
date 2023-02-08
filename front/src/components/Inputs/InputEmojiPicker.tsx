@@ -10,7 +10,7 @@ const Picker = dynamic(
   { ssr: false }
 )
 
-type EmojiInput = {
+type EmojiInputs = {
   emoji: string
   unified: string
 }
@@ -20,16 +20,15 @@ type Props = {
 }
 
 export const InputEmojiPicker = ({ onChange }: Props) => {
-  const [emojiData, setEmojiData] = useState<EmojiInput>({
+  const [emojiData, setEmojiData] = useState<EmojiInputs>({
     emoji: '😶',
     unified: '1f636'
   })
   const [open, setOpen] = useState(false)
 
-  const handleEmojiClick = (emojiData: EmojiInput) => {
+  const handleEmojiClick = (emojiData: EmojiInputs) => {
     setEmojiData(emojiData)
     setOpen(false)
-    // console.log(emojiData)
   }
 
   return (
