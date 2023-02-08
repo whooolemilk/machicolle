@@ -1,7 +1,7 @@
-import styles from '@/styles/components/Buttons/ButtonHumburger.module.scss'
+import styles from '@/styles/components/Buttons/ButtonHamburger.module.scss'
 import Link from 'next/link'
 
-export const ButtonHumburgerMenu = () => {
+export const ButtonHamburgerMenu = () => {
   return (
     <>
       <input type="checkbox" id={styles.menu_btn_check} />
