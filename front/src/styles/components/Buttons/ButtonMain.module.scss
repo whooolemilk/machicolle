@@ -15,4 +15,8 @@
   &:hover {
     background-color: var(--c-hover-orange);
   }
+
+  &:disabled {
+    background-color: var(--c-gray);
+  }
 }

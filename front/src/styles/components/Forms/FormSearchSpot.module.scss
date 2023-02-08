@@ -1,0 +1,13 @@
+.search_bar {
+  box-sizing: border-box;
+  border: 1px solid transparent var(--c-gray);
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: var(--font-size-md);
+  outline: none;
+  text-overflow: ellipsis;
+  background-color: var(--bg-gray);
+}
