@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "concurrently \"yarn dev:next\" \"yarn dev:scss\" \"yarn dev:storybook\" \"yarn dev:firebase\"",
     "dev:next": "next dev",
-    "dev:storybook": "start-storybook -s ./public -p 6006",
-    "dev:firebase": "cd /home/app/firebase && firebase emulators:start --import=./db/local --only firestore",
+    "dev:storybook": "start-storybook --quiet -s ./public -p 6006",
+    "dev:firebase": "cd /home/app/firebase && firebase emulators:start --import=./db/local",
     "dev:scss": "typed-scss-modules src --watch",
     "lint": "next lint -d ./ --ignore-path .gitignore",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",

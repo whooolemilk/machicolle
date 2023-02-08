@@ -4,11 +4,11 @@ import styles from '@/styles/components/Modals/ModalAddSpot.module.scss'
 import { ButtonMain, ButtonSecondary } from '@/components/Buttons'
 import { useModalAddSpot } from '@/hooks/modal/useModalAddSpot'
 import { CardSpotEdit } from '@/components/Cards'
-import { Inputs } from '@/hooks/form/useFormCreateStampcard'
 import { UseFormRegister } from 'react-hook-form'
+import { StampcardType } from '@/rtk/api'
 
 type ModalAddSpotProps = {
-  register: UseFormRegister<Inputs>
+  register: UseFormRegister<StampcardType>
 }
 
 export const ModalAddSpot = ({ register }: ModalAddSpotProps) => {
@@ -50,7 +50,7 @@ export const ModalAddSpot = ({ register }: ModalAddSpotProps) => {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        contentLabel="Example Modal"
+        contentLabel="Add Spot Modal"
         ariaHideApp={false}
         className={styles.modal_content}
         overlayClassName={styles.modal_overlay}

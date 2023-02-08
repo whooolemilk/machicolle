@@ -1,20 +1,21 @@
-import { Inputs } from '@/hooks/form/useFormCreateStampcard'
 import styles from '@/styles/components/Cards/CardSpotEdit.module.scss'
 import { UseFormRegister } from 'react-hook-form'
-import { LatLng } from '@/components/Forms/FormSearchSpot'
 import { CardMiniSpotEdit } from '@/components/Cards'
 import { Dispatch, SetStateAction, useState } from 'react'
-import { SpotsListType } from '@/hooks/modal/useModalAddSpot'
+import type { SpotsListType, StampcardType } from '@/rtk/api'
 
 type CardSpotEditProps = {
-  register: UseFormRegister<Inputs>
+  register: UseFormRegister<StampcardType>
   index: number
   isClickNext: boolean
   setIsClickNext: Dispatch<SetStateAction<boolean>>
   spotsList: SpotsListType
   name: string | undefined
   address: string | undefined
-  location: LatLng | undefined
+  location: {
+    lat: number | undefined
+    lng: number | undefined
+  }
   url: string | undefined
 }
 
@@ -29,11 +30,6 @@ export const CardSpotEdit = ({
   location,
   url
 }: CardSpotEditProps) => {
-  let locationValue = ''
-  if (location?.lat() !== undefined) {
-    locationValue = `${location?.lat()},${location?.lng()}`
-  }
-
   const [isMinimum, setIsMinimum] = useState(false)
 
   // スポットを追加するボタンを押された時、最後の要素以外は最小化する
@@ -86,12 +82,27 @@ export const CardSpotEdit = ({
             />
           </label>
           <label className={`${styles.label} ${styles.hidden}`}>
-            座標
+            lat
             <input
-              placeholder={'座標'}
-              {...register(`spots.${index}.location`)}
-              defaultValue={locationValue}
+              placeholder={'lat'}
+              {...register(`spots.${index}.location.lat`, {
+                valueAsNumber: true
+              })}
               className={styles.textbox}
+              type={'number'}
+              defaultValue={location.lat}
+            />
+          </label>
+          <label className={`${styles.label} ${styles.hidden}`}>
+            lng
+            <input
+              placeholder={'lng'}
+              {...register(`spots.${index}.location.lng`, {
+                valueAsNumber: true
+              })}
+              className={styles.textbox}
+              type={'number'}
+              defaultValue={location.lng}
             />
           </label>
           <label className={styles.label}>

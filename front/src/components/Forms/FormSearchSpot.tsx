@@ -1,10 +1,8 @@
 import React, { SetStateAction, Dispatch } from 'react'
 import { StandaloneSearchBox } from '@react-google-maps/api'
-import { SpotDataType } from '@/hooks/modal/useModalAddSpot'
 import styles from '@/styles/components/Forms/FormSearchSpot.module.scss'
 import { useFormSearchSpot } from '@/hooks/form/useFormSearchSpot'
-
-export type LatLng = google.maps.LatLng
+import { SpotDataType } from '@/rtk/api'
 
 type SpotSearchBoxProps = {
   placeholder: string

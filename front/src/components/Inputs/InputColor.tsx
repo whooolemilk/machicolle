@@ -1,10 +1,10 @@
-import { Inputs } from '@/hooks/form/useFormCreateStampcard'
+import { StampcardType } from '@/rtk/api'
 import styles from '@/styles/components/Forms/FormCreateStamcard.module.scss'
 import { Path, UseFormRegister } from 'react-hook-form'
 
 type InputColorProps = {
-  label: Path<Inputs>
-  register: UseFormRegister<Inputs>
+  label: Path<StampcardType>
+  register: UseFormRegister<StampcardType>
 }
 
 export const InputColor = ({ label, register }: InputColorProps) => {

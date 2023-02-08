@@ -1,26 +1,15 @@
-import { LatLng } from '@/components/Forms/FormSearchSpot'
+import { SpotDataType, SpotsListType } from '@/rtk/api'
 import { useState } from 'react'
-
-export type SpotDataType = {
-  name: string | undefined
-  address: string | undefined
-  location: LatLng | undefined
-  url: string | undefined
-}
-
-export type SpotsListType = {
-  name: string | undefined
-  address: string | undefined
-  location: LatLng | undefined
-  url: string | undefined
-}[]
 
 export const useModalAddSpot = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [spotData, setSpotData] = useState<SpotDataType>({
     name: '',
     address: '',
-    location: undefined,
+    location: {
+      lat: undefined,
+      lng: undefined
+    },
     url: ''
   })
 

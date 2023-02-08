@@ -1,8 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react'
-import { SpotDataType } from '@/hooks/modal/useModalAddSpot'
 import { useJsApiLoader } from '@react-google-maps/api'
-type PlaceResult = google.maps.places.PlaceResult
-type SearchBox = google.maps.places.SearchBox
+import { SpotDataType } from '@/rtk/api'
+import { PlaceResult, SearchBox } from '@/lib/googleMapsApiConfig'
 
 const libraries: (
   | 'drawing'
@@ -26,11 +25,15 @@ export const useFormSearchSpot = ({ setSpotData, setDisabled }: Props) => {
 
   const onPlacesChanged = () => {
     if (searchBox) results = searchBox.getPlaces()
+    // [{}]で帰ってくるのでresult[0]
     if (results && results[0] && results[0].geometry) {
       data = {
         name: results[0].name,
         address: results[0].formatted_address,
-        location: results[0].geometry.location,
+        location: {
+          lat: results[0].geometry.location?.lat(),
+          lng: results[0].geometry.location?.lng()
+        },
         url: results[0].url
       }
     }
@@ -43,7 +46,10 @@ export const useFormSearchSpot = ({ setSpotData, setDisabled }: Props) => {
     setSpotData({
       name: '',
       address: '',
-      location: undefined,
+      location: {
+        lat: undefined,
+        lng: undefined
+      },
       url: ''
     })
   }
