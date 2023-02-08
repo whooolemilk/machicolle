@@ -7,9 +7,9 @@ import { ButtonHamburgerMenu } from '@/components/Buttons/ButtonHamburgerMenu'
 const Home: NextPageWithLayout = () => {
   return (
     <>
-    {/* //PR確認用 */}
-    <ButtonHamburgerMenu/>
-    
+      {/* //PR確認用 */}
+      <ButtonHamburgerMenu />
+
       <Link href="/create">/create</Link>
       <Link href="/list">/list</Link>
     </>
