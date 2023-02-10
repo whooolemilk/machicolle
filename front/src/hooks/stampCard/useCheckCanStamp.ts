@@ -15,5 +15,7 @@ export const useCheckCanStamp = async (
     spotLocation
   )) as number
 
-  return distance <= range
+  const res: boolean = distance <= range
+
+  return res
 }

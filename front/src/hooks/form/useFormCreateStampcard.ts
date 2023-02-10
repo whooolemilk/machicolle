@@ -1,8 +1,8 @@
-import { useCreateStampcardMutation } from '@/rtk/api'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { useRouter } from 'next/router'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
-import type { StampcardType } from '@/rtk/api'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { StampcardType, useCreateStampcardMutation } from '@/rtk/api'
 
 const schema = yup.object({
   emoji: yup.string(),
@@ -34,6 +34,7 @@ const schema = yup.object({
 
 export const useFormCreateStampcard = () => {
   const [createStampcard] = useCreateStampcardMutation()
+  const router = useRouter()
 
   const {
     register,
@@ -49,7 +50,8 @@ export const useFormCreateStampcard = () => {
   })
 
   const createDataHandler = async (data: StampcardType) => {
-    await createStampcard(data).unwrap()
+    const id = await createStampcard(data).unwrap()
+    router.push(`create/${id}`)
   }
 
   const onSubmit: SubmitHandler<StampcardType> = (data) => {

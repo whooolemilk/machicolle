@@ -1,0 +1,120 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 0;
+  height: 70vh;
+  width: 100%;
+  box-sizing: border-box;
+  .swiper {
+    width: auto;
+    height: 100%;
+    margin: 0 16px;
+    border-radius: 32px;
+    .slide_wrapper .card_wrapper {
+      background-color: var(--c-white);
+      border-radius: 32px;
+      width: 100%;
+      height: 100%;
+      padding: 32px 0;
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: column;
+      justify-content: space-between;
+      // gap: 10px;
+    }
+  }
+}
+
+.image_wrapper {
+  position: relative;
+  width: auto;
+  margin: 0 32px;
+  height: 150px;
+  .image {
+    object-fit: cover;
+    border-radius: 24px;
+  }
+}
+
+.name_wrapper {
+  display: flex;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  gap: 20px;
+  margin: 0 32px;
+  .number {
+    text-align: center;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    color: var(--c-white);
+    flex-shrink: 0;
+    line-height: 40px;
+    margin: 16px 0;
+    background: var(--theme-orange);
+    &.yellow {
+      background: var(--theme-yellow);
+    }
+    &.green {
+      background: var(--theme-green);
+    }
+    &.blue {
+      background: var(--theme-blue);
+    }
+    &.pink {
+      background: var(--theme-pink);
+    }
+  }
+  .name {
+    line-height: 40px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+  .address {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+.description_wrapper {
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .comment {
+    margin: 16px 0;
+    position: relative;
+    display: inline-block;
+    padding: 16px 16px;
+    min-height: 40px;
+    width: auto;
+    font-size: var(--font-size-md);
+    background: var(--bg-gray);
+    border-radius: 8px;
+    p {
+      margin: 0;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -27px;
+      margin-top: -10px;
+      border: 10px solid transparent;
+      border-right: 18px solid var(--bg-gray);
+    }
+  }
+}
+
+.buttons_wrapper {
+  margin: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -13,11 +13,17 @@
   --c-gray: #d9d9d9;
   --bg-gray: #f4f4f4;
   --text-gray: #a3a3a3;
+  --theme-orange: linear-gradient(130deg, #f5683a 25%, #f3a828 94%);
+  --theme-yellow: linear-gradient(130deg, #f3a828 25%, #ffd15b 94%);
+  --theme-green: linear-gradient(130deg, #218549 25%, #5fc94e 94%);
+  --theme-blue: linear-gradient(130deg, #1269b7 25%, #15b9ff 94%);
+  --theme-pink: linear-gradient(130deg, #ec4d60 25%, #e8ce71 94%);
 
   // FontSize
   --font-size-sm: 1.3rem;
   --font-size-md: 1.6rem;
   --font-size-lg: 2rem;
+  --font-size-xl: 2.4rem;
 }
 
 html {

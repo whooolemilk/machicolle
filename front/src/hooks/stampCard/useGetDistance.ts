@@ -10,12 +10,12 @@ export const useGetDistance = async (
   const apiKey = process.env.NEXT_PUBLIC_GOOGLEMAPS_API_KEY ?? ''
   const loader = new Loader({ apiKey, libraries: ['geometry'] })
   const google = await loader.load()
+
   if (typeof from != 'undefined') {
-    const distance = google.maps.geometry.spherical.computeDistanceBetween(
+    const distance = google.maps.geometry?.spherical.computeDistanceBetween(
       from,
       to
     )
-
     return distance
   }
 }

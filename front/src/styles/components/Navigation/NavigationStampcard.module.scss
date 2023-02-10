@@ -1,0 +1,34 @@
+.wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--c-white);
+  width: 100%;
+  height: 96px;
+  margin: 0;
+  padding: 0 50px;
+  border-radius: 32px 32px 0 0;
+}
+
+.link {
+  width: 65px;
+  height: 51px;
+  text-align: center;
+  align-items: center;
+  list-style: none;
+  font-size: var(--font-size-md);
+  p {
+    margin: 4px 0 0 0;
+  }
+  .default {
+    color: var(--c-black);
+    text-decoration: none;
+  }
+  .focus {
+    color: var(--c-orange);
+  }
+}

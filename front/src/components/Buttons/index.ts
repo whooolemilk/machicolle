@@ -1,2 +1,5 @@
 export { ButtonMain } from '@/components/Buttons/ButtonMain'
 export { ButtonSecondary } from '@/components/Buttons/ButtonSecondary'
+export { ButtonHamburgerMenu } from '@/components/Buttons/ButtonHamburgerMenu'
+export { ButtonThemeMain } from '@/components/Buttons/ButtonThemeMain'
+export { ButtonThemeLinkSecondary } from '@/components/Buttons/ButtonThemeLinkSecondary'

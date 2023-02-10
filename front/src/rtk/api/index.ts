@@ -8,9 +8,10 @@ export type { UserType } from '@/rtk/api/users/users'
 
 // Stampcard
 export {
-  useGetStampcardsQuery,
+  useGetStampcardQuery,
+  useGetAllStampcardsQuery,
   useCreateStampcardMutation,
-  useGetMyStampcardQuery
+  useGetMyStampcardsListQuery
 } from '@/rtk/api/stampcards/stampcards'
 export type { StampcardType } from '@/rtk/api/stampcards/stampcards'
 export type { SpotDataType } from '@/rtk/api/stampcards/stampcards'

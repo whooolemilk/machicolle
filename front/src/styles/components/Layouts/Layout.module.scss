@@ -9,7 +9,10 @@
 .container {
   max-width: map-get(v.$breakpoints, 'md');
   min-width: map-get(v.$breakpoints, 'sm');
-  margin-top: 64px;
   padding: 0 1.6rem;
   min-height: 100vh;
+}
+
+.margin {
+  margin-top: 64px;
 }

@@ -3,7 +3,7 @@ import { ListLayout } from '@/components/Layouts'
 import Link from 'next/link'
 import { ReactElement, useEffect, useState } from 'react'
 import { Emoji, EmojiStyle } from 'emoji-picker-react'
-import { StampcardType, useGetMyStampcardQuery } from '@/rtk/api'
+import { StampcardType, useGetMyStampcardsListQuery } from '@/rtk/api'
 import { useCheckCanStamp } from '@/hooks/stampCard/useCheckCanStamp'
 
 type LatLngLiteral = google.maps.LatLngLiteral
@@ -27,7 +27,7 @@ const List = () => {
     lng: 135.15164162920647
   } as LatLngLiteral)
 
-  const { data: myStampcards } = useGetMyStampcardQuery(myIdList)
+  const { data: myStampcards } = useGetMyStampcardsListQuery(myIdList)
 
   useEffect(() => {
     setStampcardsList(myStampcards)

@@ -1,0 +1,16 @@
+.stamp_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0;
+  .stamp {
+    width: 100px;
+    height: 100px;
+    line-height: 90px;
+    background-color: var(--bg-gray);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-md);
+  }
+}

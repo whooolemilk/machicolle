@@ -47,7 +47,23 @@ export type SpotsListType = {
 
 const stampcardsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getStampcards: builder.query<StampcardType[], void>({
+    getStampcard: builder.query<StampcardType | string, string>({
+      queryFn: async (id) => {
+        if (id === '') return { data: '' }
+        try {
+          const db = getFirestore()
+          const ref = doc(collection(db, 'stampcards'), id)
+          const stampcardDoc = await getDoc(ref)
+          const ret = stampcardDoc.data() as StampcardType
+
+          return { data: ret }
+        } catch (err) {
+          return { error: err }
+        }
+      },
+      providesTags: ['Stampcard']
+    }),
+    getAllStampcards: builder.query<StampcardType[], void>({
       queryFn: async () => {
         try {
           const db = getFirestore()
@@ -63,7 +79,7 @@ const stampcardsApi = baseApi.injectEndpoints({
       },
       providesTags: ['Stampcard']
     }),
-    getMyStampcard: builder.query<StampcardType[], string[]>({
+    getMyStampcardsList: builder.query<StampcardType[], string[]>({
       queryFn: async (arg) => {
         try {
           const db = getFirestore()
@@ -103,7 +119,6 @@ const stampcardsApi = baseApi.injectEndpoints({
             // すでにlocalstorageにkey:myListがあったら
             const myStampcardList = myList.split(',')
             myStampcardList.push(ref.id)
-            console.log(myStampcardList)
             localStorage.setItem('myList', myStampcardList.toString())
           }
 
@@ -119,7 +134,8 @@ const stampcardsApi = baseApi.injectEndpoints({
 })
 
 export const {
-  useGetStampcardsQuery,
+  useGetStampcardQuery,
+  useGetAllStampcardsQuery,
   useCreateStampcardMutation,
-  useGetMyStampcardQuery
+  useGetMyStampcardsListQuery
 } = stampcardsApi
