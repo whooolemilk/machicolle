@@ -1,0 +1,30 @@
+.stampcard{
+    margin-top: 24px;
+}
+
+.eye_catch {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px 25px;
+    margin-right: 16px;
+}
+
+.stampcard_w {
+    display: flex;
+}
+
+.text_w {
+    display: block;
+    flex-basis: 256px;
+    margin-top: 8px;
+
+    .name {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+}
