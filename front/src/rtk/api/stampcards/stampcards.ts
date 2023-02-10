@@ -20,6 +20,7 @@ export type StampcardType = {
       lat: number
       lng: number
     }
+    thumbnail: string
     url: string
     memo: string
   }[]

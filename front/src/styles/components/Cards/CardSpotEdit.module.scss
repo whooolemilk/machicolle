@@ -34,6 +34,12 @@
   }
 }
 
+.image {
+  margin-top: 8px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .form_error {
   margin: 8px 0;
   color: var(--c-red);

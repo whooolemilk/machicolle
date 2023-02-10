@@ -4,14 +4,15 @@ import styles from '@/styles/components/Modals/ModalAddSpot.module.scss'
 import { ButtonMain, ButtonSecondary } from '@/components/Buttons'
 import { useModalAddSpot } from '@/hooks/modal/useModalAddSpot'
 import { CardSpotEdit } from '@/components/Cards'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
 import { StampcardType } from '@/rtk/api'
 import { ModalStaticMap } from '@/components/Modals/ModalStaticMap'
 type ModalAddSpotProps = {
   register: UseFormRegister<StampcardType>
+  setValue: UseFormSetValue<StampcardType>
 }
 
-export const ModalAddSpot = ({ register }: ModalAddSpotProps) => {
+export const ModalAddSpot = ({ register, setValue }: ModalAddSpotProps) => {
   const {
     isOpen,
     spotData,
@@ -35,6 +36,7 @@ export const ModalAddSpot = ({ register }: ModalAddSpotProps) => {
           address={spot.address}
           location={spot.location}
           register={register}
+          setValue={setValue}
           spotsList={spotsList}
           key={index}
           index={index}

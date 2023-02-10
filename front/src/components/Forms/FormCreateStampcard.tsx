@@ -6,7 +6,7 @@ import { useFormCreateStampcard } from '@/hooks/form'
 import { ModalAddSpot } from '@/components/Modals'
 
 export const FormCreateStampcard = () => {
-  const { register, handleSubmit, control, errors, onSubmit } =
+  const { register, handleSubmit, setValue, control, errors, onSubmit } =
     useFormCreateStampcard()
 
   return (
@@ -52,7 +52,7 @@ export const FormCreateStampcard = () => {
         </label>
         <div className={styles.label}>
           スポット
-          <ModalAddSpot register={register} />
+          <ModalAddSpot register={register} setValue={setValue} />
         </div>
         <ButtonMain type={'submit'}>公開する</ButtonMain>
       </form>

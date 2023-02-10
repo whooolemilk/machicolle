@@ -16,3 +16,6 @@ export {
 export type { StampcardType } from '@/rtk/api/stampcards/stampcards'
 export type { SpotDataType } from '@/rtk/api/stampcards/stampcards'
 export type { SpotsListType } from '@/rtk/api/stampcards/stampcards'
+
+// Image
+export { useUploadImageMutation } from '@/rtk/api/images/images'

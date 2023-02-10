@@ -1,11 +1,14 @@
 import styles from '@/styles/components/Cards/CardSpotEdit.module.scss'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormRegister, UseFormSetValue } from 'react-hook-form'
 import { CardMiniSpotEdit } from '@/components/Cards'
 import { Dispatch, SetStateAction, useState } from 'react'
-import type { SpotsListType, StampcardType } from '@/rtk/api'
+import { SpotsListType, StampcardType } from '@/rtk/api'
+import Image from 'next/image'
+import { useInputImage, useUploadImage } from '@/hooks/form'
 
 type CardSpotEditProps = {
   register: UseFormRegister<StampcardType>
+  setValue: UseFormSetValue<StampcardType>
   index: number
   isClickNext: boolean
   setIsClickNext: Dispatch<SetStateAction<boolean>>
@@ -21,6 +24,7 @@ type CardSpotEditProps = {
 
 export const CardSpotEdit = ({
   register,
+  setValue,
   index,
   isClickNext,
   setIsClickNext,
@@ -31,6 +35,11 @@ export const CardSpotEdit = ({
   url
 }: CardSpotEditProps) => {
   const [isMinimum, setIsMinimum] = useState(false)
+  const { inputRef, onClickImage } = useInputImage()
+  const { image, handleChangeImage } = useUploadImage({
+    setValue: setValue,
+    index: index
+  })
 
   // スポットを追加するボタンを押された時、最後の要素以外は最小化する
   if (isClickNext && !isMinimum && spotsList.length !== index + 1) {
@@ -72,8 +81,8 @@ export const CardSpotEdit = ({
               defaultValue={name}
             />
           </label>
-          <label className={styles.label}>
-            住所
+          <label className={`${styles.label} ${styles.hidden}`}>
+            address
             <input
               placeholder={'住所'}
               {...register(`spots.${index}.address`)}
@@ -81,6 +90,33 @@ export const CardSpotEdit = ({
               className={styles.textbox}
             />
           </label>
+          <label className={styles.label}>
+            画像
+            <input
+              className={styles.hidden}
+              type={'file'}
+              accept={'image/*'}
+              ref={inputRef}
+              onChange={handleChangeImage}
+            />
+            <input
+              className={styles.hidden}
+              {...register(`spots.${index}.thumbnail`)}
+            />
+          </label>
+          <Image
+            className={styles.image}
+            src={
+              image
+                ? URL.createObjectURL(image as File)
+                : '/images/image_default.svg'
+            }
+            alt={'img'}
+            onClick={onClickImage}
+            width={326}
+            height={67}
+          />
+
           <label className={`${styles.label} ${styles.hidden}`}>
             lat
             <input

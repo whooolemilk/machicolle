@@ -27,6 +27,7 @@ const schema = yup.object({
             message: '利用可能なURLを入力してください'
           }
         ),
+      thumbnail: yup.string(),
       memo: yup.string()
     })
   )
@@ -40,6 +41,7 @@ export const useFormCreateStampcard = () => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors }
   } = useForm<StampcardType>({
     resolver: yupResolver(schema),
@@ -56,11 +58,13 @@ export const useFormCreateStampcard = () => {
 
   const onSubmit: SubmitHandler<StampcardType> = (data) => {
     createDataHandler(data)
+    console.log(data)
   }
 
   return {
     register,
     handleSubmit,
+    setValue,
     control,
     errors,
     onSubmit
