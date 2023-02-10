@@ -1,0 +1,91 @@
+.add_spot_botton {
+  margin-top: 8px;
+  margin-bottom: 52px;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal_content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 426px;
+  margin: auto 0;
+  background: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  outline: none;
+  padding: 24px 16px;
+
+
+.button_wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.button_round {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  color: var(--c-orange);
+  background-color: var(--c-white);
+  height: 6.2rem;
+  width: 100%;
+  border: 2px solid var(--c-orange);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.6rem;
+
+  &:hover {
+    background-color: var(--c-hover-white);
+  }
+}
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+
+.message {
+  text-align: center;
+  font-size: var(--font-size-md);
+  display: table;
+  width: 100%;
+  margin: 144px 0 137.2px 0;
+
+  & > p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: var(--text-gray);
+  }
+}
+
+.spot_data {
+  line-height: normal;
+  padding: 0 16px;
+  margin: 16px 0;
+  .spot_name {
+    margin-bottom: 6px;
+    font-size: var(--font-size-md);
+  }
+  .spot_address {
+    font-size: var(--font-size-sm);
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+}

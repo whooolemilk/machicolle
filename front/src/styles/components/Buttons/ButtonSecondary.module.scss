@@ -1,0 +1,18 @@
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  color: var(--c-orange);
+  background-color: var(--c-white);
+  height: 6.2rem;
+  width: 100%;
+  border: 2px solid var(--c-orange);
+  border-radius: 1.6rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+
+  &:hover {
+    background-color: var(--c-hover-white);
+  }
+}

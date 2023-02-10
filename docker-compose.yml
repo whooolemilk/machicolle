@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  node:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: stamp-rally
+    environment:
+      FIRESTORE_EMULATOR_HOST: "localhost:8080"
+    ports:
+      - 3000:3000 # Next.js
+      - 6006:6006 # Storybook
+      - 8080:8080 # Cloud Firestore
+      - 9199:9199 # Cloud Storage
+      - 4000:4000 # Emulator Suite UI
+    volumes:
+      - ./front/:/home/app
+      - ./front/bin/:/root/.cache:cached
+      - ./front/config/:/root/.config:cached
+      - node_modules_volume:/home/app/node_modules:delegated
+      - build_volume:/home/app/.next:nocopy
+    tty: true
+
+volumes:
+  node_modules_volume:
+  build_volume:

@@ -1,0 +1,17 @@
+.emoji_button {
+  display: block;
+  border: 0;
+  background-color: var(--c-white);
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.visible {
+  position: absolute;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}

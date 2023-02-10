@@ -1,0 +1,77 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 0;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.emoji_wrapper {
+  margin: 0 auto;
+  width: 104px;
+  height: 104px;
+  border-radius: 16px;
+  background-color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  margin: 0 auto;
+  width: 240px;
+  text-align: center;
+  color: var(--c-white);
+  font-size: var(--font-size-xl);
+}
+
+.description_wrapper {
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.comment {
+  position: relative;
+  display: inline-block;
+  padding: 10px 16px;
+  width: auto;
+  min-height: 40px;
+  font-size: var(--font-size-md);
+  background: var(--bg-gray);
+  border-radius: 8px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -27px;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-right: 18px solid var(--bg-gray);
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+  }
+}
+
+.stampcard_wrapper {
+  margin: 0 16px;
+  height: 200px;
+  border-radius: 32px;
+  background-color: var(--c-white);
+  padding: 32px 16px;
+  text-align: center;
+  font-size: var(--font-size-md);
+
+}
