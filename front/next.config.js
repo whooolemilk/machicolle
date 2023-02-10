@@ -7,6 +7,16 @@ const nextConfig = {
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.join(__dirname, './src/styles')],
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'maps.googleapis.com',
+        port: '',
+        pathname: '/maps/api/**'
+      }
+    ]
   }
 }
 

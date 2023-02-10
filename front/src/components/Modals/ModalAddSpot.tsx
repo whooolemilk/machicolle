@@ -6,7 +6,7 @@ import { useModalAddSpot } from '@/hooks/modal/useModalAddSpot'
 import { CardSpotEdit } from '@/components/Cards'
 import { UseFormRegister } from 'react-hook-form'
 import { StampcardType } from '@/rtk/api'
-
+import { ModalStaticMap } from '@/components/Modals/ModalStaticMap'
 type ModalAddSpotProps = {
   register: UseFormRegister<StampcardType>
 }
@@ -73,6 +73,17 @@ export const ModalAddSpot = ({ register }: ModalAddSpotProps) => {
             <div className={styles.spot_data}>
               <p className={styles.spot_name}>{spotData?.name}</p>
               <p className={styles.spot_address}>{spotData?.address}</p>
+              {typeof spotData?.location.lat == 'number' &&
+              typeof spotData?.location.lng == 'number' ? (
+                <ModalStaticMap
+                  lat={spotData?.location.lat}
+                  lng={spotData?.location.lng}
+                  width={289}
+                  height={200}
+                />
+              ) : (
+                <></>
+              )}
             </div>
           </>
         )}

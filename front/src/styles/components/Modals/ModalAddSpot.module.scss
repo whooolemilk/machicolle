@@ -13,29 +13,19 @@
   bottom: 0;
   left: 16px;
   right: 16px;
-  height: 290px;
+  height: 426px;
   margin: auto 0;
   background: #fff;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 16px;
   outline: none;
-  padding: 20px;
-}
+  padding: 24px 16px;
 
-.modal_overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-}
 
 .button_wrapper {
   display: flex;
   gap: 16px;
-  bottom: 0;
 }
 
 .button_round {
@@ -56,14 +46,25 @@
     background-color: var(--c-hover-white);
   }
 }
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+
 
 .message {
-  height: 150px;
   text-align: center;
   font-size: var(--font-size-md);
   display: table;
   width: 100%;
-  margin: 16px 0;
+  margin: 144px 0 137.2px 0;
 
   & > p {
     display: table-cell;
@@ -75,7 +76,6 @@
 
 .spot_data {
   line-height: normal;
-  height: 150px;
   padding: 0 16px;
   margin: 16px 0;
   .spot_name {
@@ -84,5 +84,8 @@
   }
   .spot_address {
     font-size: var(--font-size-sm);
+    margin-top: 0;
+    margin-bottom: 16px;
   }
+
 }
