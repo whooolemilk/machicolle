@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,7 +6,7 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, './src/styles')],
+    includePaths: [path.join(__dirname, './src/styles')]
   },
   images: {
     remotePatterns: [
@@ -15,6 +15,12 @@ const nextConfig = {
         hostname: 'maps.googleapis.com',
         port: '',
         pathname: '/maps/api/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+        port: '',
+        pathname: '/v0/b/stamp-rally-387e1.appspot.com/o/**'
       }
     ]
   }

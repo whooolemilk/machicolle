@@ -28,7 +28,7 @@ const List = () => {
       <Link href="/stampcard">/stampcard</Link>
       {stampcardsList?.map((stampcard, index) => (
         <div key={index}>
-          <CardStampCard data={stampcard} />
+          <CardStampCard data={stampcard} myIdList={myIdList} index={index} />
         </div>
       ))}
     </>

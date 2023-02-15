@@ -1,11 +1,8 @@
 export type Styles = {
-  description: string
-  eye_catch: string
+  blue: string
+  card: string
+  green: string
   link: string
-  name: string
-  stampcard: string
-  stampcard_w: string
-  text_w: string
 }
 
 export type ClassNames = keyof Styles

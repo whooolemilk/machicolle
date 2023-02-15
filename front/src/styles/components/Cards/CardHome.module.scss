@@ -1,0 +1,27 @@
+.link {
+  text-decoration: none;
+  color: var(--c-white);
+  font-size: var(--font-size-lg);
+
+  .card {
+    height: 200px;
+    border-radius: 32px;
+    background: var(--theme-orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+    margin: 16px 0;
+
+    &.green {
+      background: var(--theme-green);
+    }
+    &.blue {
+      background: var(--theme-blue);
+    }
+
+    p{
+        line-height: 30px;
+    }
+  }
+}
