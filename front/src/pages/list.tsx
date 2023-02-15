@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useState } from 'react'
-import Link from 'next/link'
 import { ListLayout } from '@/components/Layouts'
 import { CardStampCard } from '@/components/Cards'
 import { StampcardType, useGetMyStampcardsListQuery } from '@/rtk/api'
