@@ -1,30 +1,36 @@
-.stampcard{
-    margin-top: 24px;
+.stampcard {
+  margin-top: 24px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--c-black);
 }
 
 .eye_catch {
-    background-color: white;
-    border-radius: 8px;
-    padding: 24px 25px;
-    margin-right: 16px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px 25px;
+  margin-right: 16px;
 }
 
 .stampcard_w {
-    display: flex;
+  display: flex;
+  
 }
 
 .text_w {
-    display: block;
-    flex-basis: 256px;
-    margin-top: 8px;
+  display: block;
+  flex-basis: 256px;
+  margin-top: 8px;
 
-    .name {
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
+  .name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
 
-    .description {
-        font-size: 13px;
-    }
+  .description {
+    font-size: 13px;
+  }
 }

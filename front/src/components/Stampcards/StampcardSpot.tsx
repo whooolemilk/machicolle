@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { ButtonThemeLinkSecondary } from '@/components/Buttons'
 import { BackgroundWave } from '@/components/Backgrounds'
 import { ModalStamp } from '@/components/Modals'
-import { useStampcard } from '@/hooks/stampCard'
+import { useGetStampcard } from '@/hooks/stampCard'
 import styles from '@/styles/components/Stampcards/StampcardSpot.module.scss'
 import { SpotType } from '@/lib/stampcardConfig'
 
@@ -13,9 +13,13 @@ import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
-export const StampcardSpot = () => {
-  const { stampcardData } = useStampcard()
+type StampcardSpotProps = {
+  isDemo: boolean
+  id: string
+}
 
+export const StampcardSpot = ({ isDemo, id }: StampcardSpotProps) => {
+  const { stampcardData } = useGetStampcard({ isDemo: isDemo, id: id })
   return (
     <>
       {stampcardData ? (
@@ -38,12 +42,21 @@ export const StampcardSpot = () => {
                   >
                     <div className={styles.card_wrapper}>
                       <div className={styles.image_wrapper}>
-                        <Image
-                          src={'/images/no_image.svg'}
-                          alt={'img'}
-                          fill
-                          className={styles.image}
-                        />
+                        {spot.thumbnail !== '' ? (
+                          <Image
+                            src={spot.thumbnail}
+                            alt={'img'}
+                            fill
+                            className={styles.image}
+                          />
+                        ) : (
+                          <Image
+                            src={'/images/no_image.svg'}
+                            alt={'img'}
+                            fill
+                            className={styles.image}
+                          />
+                        )}
                       </div>
                       <div className={styles.name_wrapper}>
                         <div
@@ -91,6 +104,7 @@ export const StampcardSpot = () => {
                           index={index}
                           location={spot.location}
                           emoji={stampcardData.emoji}
+                          id={id}
                         />
                       </div>
                     </div>
@@ -101,7 +115,7 @@ export const StampcardSpot = () => {
           </div>
         </>
       ) : (
-        <></>
+        <>no data</>
       )}
     </>
   )

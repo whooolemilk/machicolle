@@ -1,11 +1,16 @@
 import Image from 'next/image'
 import { ButtonThemeLinkSecondary } from '@/components/Buttons'
 import { BackgroundWave } from '@/components/Backgrounds'
-import { useStampcard } from '@/hooks/stampCard'
+import { useGetStampcard } from '@/hooks/stampCard'
 import styles from '@/styles/components/Stampcards/StampcardCoupon.module.scss'
 
-export const StampcardCoupon = () => {
-  const { stampcardData } = useStampcard()
+type StampcardCouponProps = {
+  isDemo: boolean
+  id: string
+}
+
+export const StampcardCoupon = ({ isDemo, id }: StampcardCouponProps) => {
+  const { stampcardData } = useGetStampcard({ isDemo: isDemo, id: id })
 
   return (
     <>
@@ -34,7 +39,7 @@ export const StampcardCoupon = () => {
               <ButtonThemeLinkSecondary
                 color={stampcardData.stampcardTheme}
                 label={'デモで体験してみる'}
-                url={'https://maps.google.com/?cid=7141037060495360067'}
+                url={'/stampcard/sample/'}
               />
             </div>
           </div>

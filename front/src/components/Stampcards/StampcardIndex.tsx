@@ -1,23 +1,20 @@
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Emoji, EmojiStyle } from 'emoji-picker-react'
 import { Stamp } from '@/components/Stamps'
 import { BackgroundWave } from '@/components/Backgrounds'
-import { useStampcard } from '@/hooks/stampCard'
 import styles from '@/styles/components/Stampcards/StampcardIndex.module.scss'
+import { useGetStampcard } from '@/hooks/stampCard'
 
-export const StampcardIndex = () => {
-  const { stampcardData, id } = useStampcard()
-  const [isStamped, setIsStamped] = useState<number[]>([])
+type StampcardIndexProps = {
+  isDemo: boolean
+  id: string
+}
 
-  useEffect(() => {
-    const myStampedList = localStorage.getItem(id)
-    if (typeof myStampedList === 'string') {
-      // すでにlocalstorageにkey:myListがあったら
-      const myStampcardList = myStampedList.split(',')
-      setIsStamped(myStampcardList.map((str) => parseInt(str, 10)))
-    }
-  }, [])
+export const StampcardIndex = ({ isDemo, id }: StampcardIndexProps) => {
+  const { stampcardData, isStamped } = useGetStampcard({
+    isDemo: isDemo,
+    id: id
+  })
 
   return (
     <>
@@ -51,7 +48,7 @@ export const StampcardIndex = () => {
           </div>
         </>
       ) : (
-        <></>
+        <>no data</>
       )}
     </>
   )

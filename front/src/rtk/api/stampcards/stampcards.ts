@@ -50,12 +50,19 @@ const stampcardsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getStampcard: builder.query<StampcardType | string, string>({
       queryFn: async (id) => {
-        if (id === '') return { data: '' }
+        let ret: string | StampcardType = 'idに該当するデータがありません。'
+        if (id === '') {
+          ret = 'idが空のため、データが見つかりませんでした。'
+          return { data: ret }
+        }
         try {
           const db = getFirestore()
           const ref = doc(collection(db, 'stampcards'), id)
           const stampcardDoc = await getDoc(ref)
-          const ret = stampcardDoc.data() as StampcardType
+          if (stampcardDoc.exists()) {
+            ret = stampcardDoc.data() as StampcardType
+            return { data: ret }
+          }
 
           return { data: ret }
         } catch (err) {

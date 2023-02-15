@@ -9,16 +9,12 @@ export const ButtonHamburgerMenu = () => {
         <span></span>
       </label>
       <div className={styles.menu_content}>
-        {/* サイドバーの内容はのちに追加 */}
         <ul>
           <li>
-            <Link href="/">メニューリンク1</Link>
+            <Link href="/home">ホーム</Link>
           </li>
           <li>
-            <Link href="#">メニューリンク2</Link>
-          </li>
-          <li>
-            <Link href="#">メニューリンク3</Link>
+            <Link href="/">LP</Link>
           </li>
         </ul>
       </div>

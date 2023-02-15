@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Modal from 'react-modal'
-import { useRouter } from 'next/router'
 import { ButtonThemeMain } from '@/components/Buttons'
 import { Stamp } from '@/components/Stamps'
 import { useCheckCanStamp } from '@/hooks/stampCard/useCheckCanStamp'
@@ -16,6 +15,7 @@ type ModalStampProps = {
     lat: number
     lng: number
   }
+  id: string
 }
 
 export const ModalStamp = ({
@@ -23,22 +23,16 @@ export const ModalStamp = ({
   name,
   emoji,
   color,
-  location
+  location,
+  id
 }: ModalStampProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isStamped, setIsStamped] = useState<number[]>([])
-  const router = useRouter()
 
   const canStamp = useCheckCanStamp({
     lat: location.lat,
     lng: location.lng
   } as unknown as LatLngLiteral)
-
-  // localStorageのkey用に[id]を取得
-  let id = ''
-  if (typeof router.query.id === 'string') {
-    id = router.query.id
-  }
 
   const openModal = (index: number) => {
     setIsOpen(true)
@@ -76,12 +70,17 @@ export const ModalStamp = ({
   }
 
   useEffect(() => {
-    const myStampedList = localStorage.getItem(id)
-    if (typeof myStampedList === 'string') {
-      // すでにlocalstorageにkey:myListがあったら
-      const myStampcardList = myStampedList.split(',')
-      setIsStamped(myStampcardList.map((str) => parseInt(str, 10)))
+    const getIsStamped = () => {
+      const myStampedList = localStorage.getItem(id)
+
+      if (typeof myStampedList === 'string') {
+        // すでにlocalstorageにkey:myListがあったら
+        const myStampcardList = myStampedList.split(',')
+        setIsStamped(myStampcardList.map((str) => parseInt(str, 10)))
+      }
     }
+    getIsStamped()
+    console.log(id)
   }, [localStorage.getItem(id)])
 
   return (
