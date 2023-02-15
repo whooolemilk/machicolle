@@ -2,11 +2,14 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Emoji, EmojiStyle } from 'emoji-picker-react'
 import { ButtonMain } from '@/components/Buttons'
-import { useStampcard } from '@/hooks/stampCard'
+import { useGetStampcard } from '@/hooks/stampCard'
 import styles from '@/styles/components/Cards/CardPublic.module.scss'
 
-export const CardPublic = () => {
-  const { stampcardData, id } = useStampcard()
+type CardPublicProps = {
+  id: string
+}
+export const CardPublic = ({ id }: CardPublicProps) => {
+  const { stampcardData } = useGetStampcard({ isDemo: false, id: id })
   const router = useRouter()
   const urlText = `https://machicolle.vercel.app/stampcard/${id}`
 
@@ -50,7 +53,9 @@ export const CardPublic = () => {
           </Link>
         </>
       ) : (
-        <></>
+        <Link href={'/home'} className={styles.link_home}>
+          ホームに戻る
+        </Link>
       )}
     </>
   )

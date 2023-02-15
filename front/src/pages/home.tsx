@@ -1,17 +1,12 @@
-import Link from 'next/link'
 import { ReactElement } from 'react'
 import { HomeLayout } from '@/components/Layouts'
-import type { NextPageWithLayout } from './_app'
-import { ButtonHamburgerMenu } from '@/components/Buttons/ButtonHamburgerMenu'
+import { CardHome } from '@/components/Cards'
+import type { NextPageWithLayout } from '@/pages/_app'
 
 const Home: NextPageWithLayout = () => {
   return (
     <>
-      {/* //PR確認用 */}
-      <ButtonHamburgerMenu />
-
-      <Link href="/create">/create</Link>
-      <Link href="/list">/list</Link>
+      <CardHome />
     </>
   )
 }
