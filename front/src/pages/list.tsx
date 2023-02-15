@@ -25,7 +25,6 @@ const List = () => {
   }, [myStampcards])
   return (
     <>
-      <Link href="/stampcard">/stampcard</Link>
       {stampcardsList?.map((stampcard, index) => (
         <div key={index}>
           <CardStampCard data={stampcard} myIdList={myIdList} index={index} />
