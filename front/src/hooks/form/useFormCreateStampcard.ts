@@ -30,7 +30,7 @@ const schema = yup.object({
       thumbnail: yup.string(),
       memo: yup.string()
     })
-  )
+  ).required('スポットを追加してください')
 })
 
 export const useFormCreateStampcard = () => {
