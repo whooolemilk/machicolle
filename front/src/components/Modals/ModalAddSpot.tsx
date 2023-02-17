@@ -26,6 +26,7 @@ export const ModalAddSpot = ({ register, setValue }: ModalAddSpotProps) => {
     closeSaveModal,
     closeModal
   } = useModalAddSpot()
+  const isDisabled = spotsList.length >= 3
 
   return (
     <>
@@ -45,7 +46,11 @@ export const ModalAddSpot = ({ register, setValue }: ModalAddSpotProps) => {
         />
       ))}
       <div className={styles.add_spot_botton}>
-        <ButtonSecondary onClick={openModal} type={'button'}>
+        <ButtonSecondary
+          onClick={openModal}
+          type={'button'}
+          disabled={isDisabled}
+        >
           スポットを追加する
         </ButtonSecondary>
       </div>
