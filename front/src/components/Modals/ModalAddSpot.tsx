@@ -63,7 +63,7 @@ export const ModalAddSpot = ({ register, setValue }: ModalAddSpotProps) => {
         overlayClassName={styles.modal_overlay}
       >
         <FormSearchSpot
-          placeholder={'場所を入力'}
+          placeholder={'場所の名前で検索'}
           setSpotData={setSpotData}
           setDisabled={setDisabled}
         />
