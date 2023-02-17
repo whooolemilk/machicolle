@@ -13,24 +13,27 @@ const schema = yup.object({
     .string()
     .required('スタンプラリーの説明を入力してください'),
   stampcardTheme: yup.string().defined(),
-  spots: yup.array().of(
-    yup.object().shape({
-      name: yup.string(),
-      address: yup.string(),
-      url: yup
-        .string()
-        .required('urlを入力してください')
-        // urlの正規表現にマッチしなかったら弾く
-        .matches(
-          /^(https?|ftp)(:\/\/(maps.google.com)\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+)/,
-          {
-            message: '利用可能なURLを入力してください'
-          }
-        ),
-      thumbnail: yup.string(),
-      memo: yup.string()
-    })
-  ).required('スポットを追加してください')
+  spots: yup
+    .array()
+    .of(
+      yup.object().shape({
+        name: yup.string(),
+        address: yup.string(),
+        url: yup
+          .string()
+          .required('urlを入力してください')
+          // urlの正規表現にマッチしなかったら弾く
+          .matches(
+            /^(https?|ftp)(:\/\/(maps.google.com)\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+)/,
+            {
+              message: '利用可能なURLを入力してください'
+            }
+          ),
+        thumbnail: yup.string(),
+        memo: yup.string()
+      })
+    )
+    .required('スポットを追加してください')
 })
 
 export const useFormCreateStampcard = () => {

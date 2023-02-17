@@ -51,14 +51,16 @@ export const FormCreateStampcard = () => {
           <InputColor register={register} label={'stampcardTheme'} />
         </label>
         <div className={styles.label}>
-          スポット
-          {errors.spots && (<span className={styles.form_error}>
-          <HiOutlineExclamation size={'18px'} color={'#d41717'} />
-          {errors.spots.message}
-        </span>)}
+          スポット(３個まで)
+          {errors.spots && (
+            <span className={styles.form_error}>
+              <HiOutlineExclamation size={'18px'} color={'#d41717'} />
+              {errors.spots.message}
+            </span>
+          )}
           <ModalAddSpot register={register} setValue={setValue} />
         </div>
-        
+
         <ButtonMain type={'submit'}>公開する</ButtonMain>
       </form>
     </>
