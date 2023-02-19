@@ -15,4 +15,11 @@
   &:hover {
     background-color: var(--c-hover-white);
   }
+
+  &:disabled {
+    color: var(--c-white);
+    background-color: var(--c-gray);
+    border: 2px solid var(--c-gray);
+
+  }
 }
