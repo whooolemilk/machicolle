@@ -7,7 +7,6 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 <br>
 
-
 ## サービス概要
 ### 🌱 背景
 ***
@@ -19,7 +18,6 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 <br>
 
-
 ### 🌷 解決する課題
 ***
 `県民の課題`
@@ -27,7 +25,6 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 `既存施設の課題`
 - 新規顧客・リピーター獲得が難しい（特に若者へのアプローチ）
-
 
 <br>
 
