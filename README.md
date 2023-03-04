@@ -72,6 +72,9 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 # React Hook FormとYup
 - input要素などに入力した値の取得やバリデーションを簡単に
 
+# PWA
+- スマホアプリに近いユーザ体験の提供
+
 # Firebase Local Emulator Suite
 - ローカル環境でFirestoreの機能を確認、開発効率アップ
 
