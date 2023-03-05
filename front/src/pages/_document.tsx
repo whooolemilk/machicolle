@@ -20,7 +20,7 @@ export default function Document() {
         />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=M+PLUS+1:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=M+PLUS+1:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />{' '}
         <meta name="theme-color" content="#fff" />
