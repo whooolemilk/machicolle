@@ -5,6 +5,8 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 ※モバイルファーストで開発していますので、スマホで動作確認をお願いします。
 
+<br>
+
 ## サービス概要
 ### 🌱 背景
 ***
@@ -16,7 +18,6 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 <br>
 
-
 ### 🌷 解決する課題
 ***
 `県民の課題`
@@ -24,7 +25,6 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 `既存施設の課題`
 - 新規顧客・リピーター獲得が難しい（特に若者へのアプローチ）
-
 
 <br>
 
@@ -71,6 +71,9 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 ```sh
 # React Hook FormとYup
 - input要素などに入力した値の取得やバリデーションを簡単に
+
+# PWA
+- スマホアプリに近いユーザ体験の提供
 
 # Firebase Local Emulator Suite
 - ローカル環境でFirestoreの機能を確認、開発効率アップ
