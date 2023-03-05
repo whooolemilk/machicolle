@@ -7,6 +7,7 @@ import '@/lib/firebase'
 import { Layout } from '@/components/Layouts'
 import { NextPage } from 'next'
 import type { ReactElement, ReactNode } from 'react'
+import { DefaultSeo } from '@/components/SEOs'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <Provider store={store}>
+      <DefaultSeo />
       <Layout>
         <Component {...pageProps} />
       </Layout>
