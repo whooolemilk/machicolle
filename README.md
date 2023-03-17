@@ -5,8 +5,6 @@ URL:[https://machicolle.vercel.app/](https://machicolle.vercel.app/)
 
 ※モバイルファーストで開発していますので、スマホで動作確認をお願いします。
 
-<br>
-
 ## サービス概要
 ### 🌱 背景
 ***
