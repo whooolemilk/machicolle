@@ -5,6 +5,7 @@ import { Stamp } from '@/components/Stamps'
 import { useCheckCanStamp } from '@/hooks/stampCard/useCheckCanStamp'
 import styles from '@/styles/components/Modals/ModalStamp.module.scss'
 import { LatLngLiteral } from '@/lib/googleMapsApiConfig'
+import Image from 'next/image'
 
 type ModalStampProps = {
   index: number
@@ -28,6 +29,8 @@ export const ModalStamp = ({
 }: ModalStampProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isStamped, setIsStamped] = useState<number[]>([])
+  const [isClose, setIsClose] = useState(false)
+  const [dist, setDist] = useState<number>(0)
 
   const canStamp = useCheckCanStamp({
     lat: location.lat,
@@ -36,8 +39,9 @@ export const ModalStamp = ({
 
   const openModal = (index: number) => {
     setIsOpen(true)
-    canStamp.then((res) => {
-      if (!res) {
+    canStamp.then(({ res, distance }) => {
+      if (res) {
+        setIsClose(true)
         // resがtrueの時、indexのスタンプを押したことにする
         const myStampedList = localStorage.getItem(id)
 
@@ -61,6 +65,9 @@ export const ModalStamp = ({
             setIsStamped([...isStamped, index])
           }
         }
+      } else {
+        setIsClose(false)
+        setDist(distance)
       }
     })
   }
@@ -80,7 +87,7 @@ export const ModalStamp = ({
       }
     }
     getIsStamped()
-    console.log(id)
+
   }, [localStorage.getItem(id)])
 
   return (
@@ -121,13 +128,39 @@ export const ModalStamp = ({
         }}
         closeTimeoutMS={300}
       >
-        <p className={styles.title}>スタンプ獲得！</p>
-        <p className={styles.text}>まちコレスタンプラリー</p>
-        <Stamp isStampedList={isStamped} emoji={emoji} />
-        <p className={styles.text}>
-          「{name}」<br />
-          のスタンプを獲得しました！
-        </p>
+        {isClose ? (
+          <>
+            <p className={styles.title}>スタンプ獲得！</p>
+            <p className={styles.text}>まちコレスタンプラリー</p>
+            <Stamp isStampedList={isStamped} emoji={emoji} />
+            <p className={styles.text}>
+              「{name}」<br />
+              のスタンプを獲得しました！
+            </p>
+          </>
+        ) : (
+          <>
+            <p className={styles.title}>もう少し近づいてみよう！</p>
+            <Image
+              src="/images/no_stamp.svg"
+              alt="img"
+              width={110}
+              height={110}
+            />
+            <p className={styles.text}>
+              登録されたお店や場所まで
+              <br />
+              <span>あと{Math.round(dist)}m！</span>
+              <br />
+            </p>
+
+            <p className={styles.text}>
+              もう少し近くまで行って、
+              <br />
+              再度スタンプを押してみてください！
+            </p>
+          </>
+        )}
       </Modal>
     </>
   )
