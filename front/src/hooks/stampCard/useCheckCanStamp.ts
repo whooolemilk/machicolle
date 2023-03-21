@@ -7,9 +7,10 @@ type LatLngLiteral = google.maps.LatLngLiteral
 export const useCheckCanStamp = async (
   spotLocation: LatLng | LatLngLiteral
 ) => {
-  const range = 15.0
+  const range = 20.0
 
   const { currentLocation } = useGetCurrentLocation()
+
   const distance = (await useGetDistance(
     currentLocation,
     spotLocation
@@ -17,5 +18,5 @@ export const useCheckCanStamp = async (
 
   const res: boolean = distance <= range
 
-  return res
+  return { res, distance }
 }

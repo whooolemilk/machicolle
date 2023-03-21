@@ -22,11 +22,15 @@
 
   .text {
     font-size: var(--font-size-md);
+    & > span {
+      color: var(--c-orange);
+      font-size: var(--font-size-lg);
+    }
   }
 }
 
 .modal_content_after {
-  height: 300px;
+  height: 310px;
   background-color: var(--c-white);
   padding: 16px 16px;
 }

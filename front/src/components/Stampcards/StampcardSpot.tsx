@@ -3,7 +3,7 @@ import { Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ButtonThemeLinkSecondary } from '@/components/Buttons'
 import { BackgroundWave } from '@/components/Backgrounds'
-import { ModalStamp } from '@/components/Modals'
+import { ModalStamp, ModalDemoStamp } from '@/components/Modals'
 import { useGetStampcard } from '@/hooks/stampCard'
 import styles from '@/styles/components/Stampcards/StampcardSpot.module.scss'
 import { SpotType } from '@/lib/stampcardConfig'
@@ -98,14 +98,29 @@ export const StampcardSpot = ({ isDemo, id }: StampcardSpotProps) => {
                           label={'Googleマップで開く'}
                           url={spot.url}
                         />
-                        <ModalStamp
-                          color={stampcardData.stampcardTheme}
-                          name={spot.name}
-                          index={index}
-                          location={spot.location}
-                          emoji={stampcardData.emoji}
-                          id={id}
-                        />
+                        {isDemo ? (
+                          <>
+                            <ModalDemoStamp
+                              color={stampcardData.stampcardTheme}
+                              name={spot.name}
+                              index={index}
+                              location={spot.location}
+                              emoji={stampcardData.emoji}
+                              id={id}
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <ModalStamp
+                              color={stampcardData.stampcardTheme}
+                              name={spot.name}
+                              index={index}
+                              location={spot.location}
+                              emoji={stampcardData.emoji}
+                              id={id}
+                            />
+                          </>
+                        )}
                       </div>
                     </div>
                   </SwiperSlide>

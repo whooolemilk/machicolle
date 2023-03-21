@@ -7,7 +7,7 @@ import styles from '@/styles/components/Modals/ModalStamp.module.scss'
 import { LatLngLiteral } from '@/lib/googleMapsApiConfig'
 import Image from 'next/image'
 
-type ModalStampProps = {
+type ModalDemoStampProps = {
   index: number
   name: string
   emoji: string
@@ -19,14 +19,14 @@ type ModalStampProps = {
   id: string
 }
 
-export const ModalStamp = ({
+export const ModalDemoStamp = ({
   index,
   name,
   emoji,
   color,
   location,
   id
-}: ModalStampProps) => {
+}: ModalDemoStampProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isStamped, setIsStamped] = useState<number[]>([])
   const [isClose, setIsClose] = useState(false)
@@ -40,7 +40,7 @@ export const ModalStamp = ({
   const openModal = (index: number) => {
     setIsOpen(true)
     canStamp.then(({ res, distance }) => {
-      if (res) {
+      if (!res) {
         setIsClose(true)
         // resがtrueの時、indexのスタンプを押したことにする
         const myStampedList = localStorage.getItem(id)
@@ -87,6 +87,7 @@ export const ModalStamp = ({
       }
     }
     getIsStamped()
+    console.log(id)
   }, [localStorage.getItem(id)])
 
   return (
