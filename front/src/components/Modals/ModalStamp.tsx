@@ -87,7 +87,6 @@ export const ModalStamp = ({
       }
     }
     getIsStamped()
-
   }, [localStorage.getItem(id)])
 
   return (
